@@ -20,6 +20,7 @@
     
         <label for="curp">CURP:</label>
         <input type="text" id="curp" name="curp" required>
+        <input type="hidden" id="user_id">
     
         <button type="submit">Guardar</button>
     </form>
@@ -36,6 +37,8 @@
                 <th>Apellido</th>
                 <th>Edad</th>
                 <th>CURP</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody id="usuarios"></tbody>

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             error_log("Conexión fallida: " . $conn->connect_error); 
             die("Conexión fallida: " . $conn->connect_error);
         } else {
-            echo "Conexión exitosa a la base de datos.<br>"; /
+            echo "Conexión exitosa a la base de datos.<br>"; 
         }
 
    
