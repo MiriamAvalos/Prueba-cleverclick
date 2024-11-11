@@ -23,6 +23,24 @@
     
         <button type="submit">Guardar</button>
     </form>
+
+
+
+  <!-- Tabla con registros -->
+  <h1>Lista de Usuarios</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>CURP</th>
+            </tr>
+        </thead>
+        <tbody id="usuarios"></tbody>
+    </table>
+
     
     <script src="script.js"></script>
 </body>
