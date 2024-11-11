@@ -52,36 +52,39 @@ $(document).ready(function() {
         });
     });
 
-    // Función para obtener y mostrar los usuarios
-    function obtenerUsuarios() {
-        fetch('http://localhost/cleverclick/obtener_usuarios.php')
-            .then(response => response.json())
-            .then(data => {
-                console.log("Datos recibidos:", data);
-
-                let usuariosHTML = '';
-                data.forEach(usuario => {
-                    // Corregir sintaxis de la cadena HTML
-                    usuariosHTML += `
-                        <tr>
-                            <td>${usuario.id}</td>
-                            <td>${usuario.first_name}</td>
-                            <td>${usuario.last_name}</td>
-                            <td>${usuario.age}</td>
-                            <td>${usuario.curp}</td>
-                            <td><button onclick="editarUsuario(${usuario.id})">Editar</button></td>
-                        </tr>
-                    `;
-                });
-
-                document.getElementById('usuarios').innerHTML = usuariosHTML;
-            })
-            .catch(error => console.error('Error al obtener los usuarios:', error));
-    }
-
-    // Llama a la función obtenerUsuarios al cargar la página
-    obtenerUsuarios();
+   
 });
+
+ // Función para obtener y mostrar los usuarios
+ function obtenerUsuarios() {
+    fetch('http://localhost/cleverclick/obtener_usuarios.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log("Datos recibidos:", data);
+
+            let usuariosHTML = '';
+            data.forEach(usuario => {
+                // Corregir sintaxis de la cadena HTML
+                usuariosHTML += `
+                    <tr>
+                        <td>${usuario.id}</td>
+                        <td>${usuario.first_name}</td>
+                        <td>${usuario.last_name}</td>
+                        <td>${usuario.age}</td>
+                        <td>${usuario.curp}</td>
+                        <td><button onclick="editarUsuario(${usuario.id})">Editar</button></td>
+                        <td><button onclick="eliminarUsuario(${usuario.id})">Eliminar</button></td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('usuarios').innerHTML = usuariosHTML;
+        })
+        .catch(error => console.error('Error al obtener los usuarios:', error));
+}
+
+
+obtenerUsuarios();
 
 // Función para editar un usuario
 function editarUsuario(userId) {
@@ -105,4 +108,28 @@ function editarUsuario(userId) {
             alert("Ocurrió un error al obtener los datos del usuario.");
         }
     });
+}
+
+
+// Función para eliminar un usuario
+function eliminarUsuario(userId) {
+    if (confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
+        console.log("Intentando eliminar usuario con ID:", userId);
+        $.ajax({
+            url: 'http://localhost/cleverclick/eliminar_usuario.php',  
+            type: 'POST',
+            data: { id: userId },  
+            success: function(response) {
+                console.log("Respuesta del servidor para eliminación:", response);
+               
+                obtenerUsuarios();  
+            },
+            error: function(xhr, status, error) {
+                console.log("Error status:", status);
+                console.log("Error message:", error);
+                console.log("Response text:", xhr.responseText);
+                alert("Ocurrió un error al eliminar el usuario.");
+            }
+        });
+    }
 }
