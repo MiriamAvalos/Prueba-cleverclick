@@ -21,7 +21,7 @@ $(document).ready(function() {
         }
 
         // Determinar si es para guardar o editar
-        let url = userId ? 'http://localhost/cleverclick/editar_usuarios.php' : 'http://localhost/cleverclick/guardar_usuario.php';
+        let url = userId ? 'https://app-c1917a75-eab0-430b-aec9-60f5695d419f.cleverapps.io/editar_usuarios.php' : 'https://app-c1917a75-eab0-430b-aec9-60f5695d419f.cleverapps.io/guardar_usuario.php';
 
         $.ajax({
             url: url,  // Cambiar la URL dependiendo si es edición o creación
@@ -51,20 +51,17 @@ $(document).ready(function() {
             }
         });
     });
-
-   
 });
 
- // Función para obtener y mostrar los usuarios
- function obtenerUsuarios() {
-    fetch('http://localhost/cleverclick/obtener_usuarios.php')
+// Función para obtener y mostrar los usuarios
+function obtenerUsuarios() {
+    fetch('https://app-c1917a75-eab0-430b-aec9-60f5695d419f.cleverapps.io/obtener_usuarios.php')
         .then(response => response.json())
         .then(data => {
             console.log("Datos recibidos:", data);
 
             let usuariosHTML = '';
             data.forEach(usuario => {
-                // Corregir sintaxis de la cadena HTML
                 usuariosHTML += `
                     <tr>
                         <td>${usuario.id}</td>
@@ -83,25 +80,24 @@ $(document).ready(function() {
         .catch(error => console.error('Error al obtener los usuarios:', error));
 }
 
-
 obtenerUsuarios();
 
 // Función para editar un usuario
 function editarUsuario(userId) {
     $.ajax({
-        url: 'http://localhost/cleverclick/obtener_usuario.php',
+        url: 'https://app-c1917a75-eab0-430b-aec9-60f5695d419f.cleverapps.io/obtener_usuario.php',
         type: 'GET',
-        data: { id: userId }, // Pasar el ID del usuario
+        data: { id: userId },
         success: function(response) {
-            let usuario = JSON.parse(response);  
+            let usuario = JSON.parse(response);
 
-            console.log("Tipo de usuario:", typeof usuario); 
+            console.log("Tipo de usuario:", typeof usuario);
 
             $("#first_name").val(usuario.first_name);
             $("#last_name").val(usuario.last_name);
             $("#age").val(usuario.age);
             $("#curp").val(usuario.curp);
-            $("#user_id").val(usuario.id);  
+            $("#user_id").val(usuario.id);
         },
         error: function(xhr, status, error) {
             console.log("Error al obtener usuario:", error);
@@ -110,19 +106,17 @@ function editarUsuario(userId) {
     });
 }
 
-
 // Función para eliminar un usuario
 function eliminarUsuario(userId) {
     if (confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
         console.log("Intentando eliminar usuario con ID:", userId);
         $.ajax({
-            url: 'http://localhost/cleverclick/eliminar_usuario.php',  
+            url: 'https://app-c1917a75-eab0-430b-aec9-60f5695d419f.cleverapps.io/eliminar_usuario.php',
             type: 'POST',
-            data: { id: userId },  
+            data: { id: userId },
             success: function(response) {
                 console.log("Respuesta del servidor para eliminación:", response);
-               
-                obtenerUsuarios();  
+                obtenerUsuarios();
             },
             error: function(xhr, status, error) {
                 console.log("Error status:", status);
