@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "app_id": "app_c1917a75-eab0-430b-aec9-60f5695d419f",
+      "org_id": "user_e0f4689b-77a9-408c-b88b-ce1c438c0493",
+      "deploy_url": "https://github.com/MiriamAvalos/Prueba-cleverclick.git",
+      "git_ssh_url": "https://github.com/MiriamAvalos/Prueba-cleverclick.git",
+      "name": "Prueba-cleverclick",
+      "alias": "Prueba-cleverclick"
+    }
+  ]
+}
