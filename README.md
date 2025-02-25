@@ -46,6 +46,6 @@ Los datos se validan tanto en el cliente como en el servidor para garantizar que
 
 ## Instrucciones de Uso
 
-### 1.   Aplicación desplegada en Clever :
+### 1.   Aplicación desplegada en infinityFree :
 
 http://user-registration.rf.gd
