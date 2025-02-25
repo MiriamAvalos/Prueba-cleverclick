@@ -21,7 +21,7 @@ $(document).ready(function() {
         }
 
         // Determinar si es para guardar o editar
-        let url = userId ? 'https://sql107.infinityfree.com/editar_usuarios.php' : 'https://sql107.infinityfree.com/guardar_usuario.php';
+        let url = userId ? 'http://user-registration.rf.gd/editar_usuarios.php' : 'http://user-registration.rf.gd/guardar_usuario.php';
 
         $.ajax({
             url: url,  // Cambiar la URL dependiendo si es edición o creación
@@ -55,7 +55,7 @@ $(document).ready(function() {
 
 // Función para obtener y mostrar los usuarios
 function obtenerUsuarios() {
-    fetch('https://sql107.infinityfree.com/obtener_usuarios.php')
+    fetch('http://user-registration.rf.gd/obtener_usuarios.php')
         .then(response => response.json())
         .then(data => {
             console.log("Datos recibidos:", data);
@@ -85,7 +85,7 @@ obtenerUsuarios();
 // Función para editar un usuario
 function editarUsuario(userId) {
     $.ajax({
-        url: 'https://sql107.infinityfree.com/obtener_usuario.php',
+        url: 'http://user-registration.rf.gd/obtener_usuario.php',
         type: 'GET',
         data: { id: userId },
         success: function(response) {
@@ -111,7 +111,7 @@ function eliminarUsuario(userId) {
     if (confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
         console.log("Intentando eliminar usuario con ID:", userId);
         $.ajax({
-            url: 'https://sql107.infinityfree.com/eliminar_usuario.php',
+            url: 'http://user-registration.rf.gd/eliminar_usuario.php',
             type: 'POST',
             data: { id: userId },
             success: function(response) {
