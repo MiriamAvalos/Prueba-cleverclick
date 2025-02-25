@@ -13,11 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $userId = $_POST['id'];
 
         // Datos de conexión a la base de datos
-        $host = "btvax3f1faoz6dli8zrx-mysql.services.clever-cloud.com";
-        $user = "uwn4oeduomhguidh";
-        $password = "9fZhJdADyQ3edlVjPTaJ";
-        $dbname = "btvax3f1faoz6dli8zrx";
-        $port = 3306;
+       // Conexión a la base de datos
+$host = "sql107.infinityfree.com";
+$user = "if0_38397056";
+$password = "Tv0iZMVUyhsoa";
+$dbname = "if0_38397056_crud_usuarios";
+$port = 3306;
+
 
         // Conectar a la base de datos
         $conn = new mysqli($host, $user, $password, $dbname, $port);
