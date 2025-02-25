@@ -31,7 +31,7 @@ Para ejecutar esta aplicación localmente, necesitarás instalar algunos program
 - **MySQL**: Sistema de gestión de bases de datos relacional para almacenar los datos de los usuarios.
 - **JavaScript/jQuery**: Para el manejo de la interfaz de usuario y las solicitudes asincrónicas en el frontend.
 - **HTML y CSS**: Para estructurar y diseñar el contenido de la aplicación.
-- **Clever Cloud**: Plataforma utilizada para el despliegue de la aplicación y la base de datos MySQL en la nube.
+- **infinityFree**: Plataforma utilizada para el despliegue de la aplicación y la base de datos MySQL en la nube.
 
 ## Descripción de la Aplicación
 
